@@ -1,0 +1,14 @@
+{
+  "name": "track-expenses-and-income",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "nodemon backend/server.js",
+    "frontend": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run backend \" \"npm run frontend \""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
