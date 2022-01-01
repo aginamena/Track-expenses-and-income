@@ -1,0 +1,36 @@
+#loginPage {
+  height: 100vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  & #loginContent {
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    > h1 {
+      width: 400px;
+    }
+    & > form {
+      border: 1px solid lightgray;
+      padding: 20px;
+      #loginPageBtns {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        & > small {
+          margin: 0 10px;
+        }
+      }
+    }
+    // #loginPageBtns {
+    //   margin-top: 20px;
+    //   display: flex;
+    //   align-items: center;
+    //   & > small {
+    //     margin: 0 10px;
+    //   }
+    // }
+  }
+}
