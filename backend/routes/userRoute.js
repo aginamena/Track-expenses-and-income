@@ -24,8 +24,9 @@ userRoute.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email, password: password });
     if (user) {
-        const updatedUser = await User.findOneAndUpdate({ email: email, password: password }, { isLoggedIn: true }, { new: true });
-        res.json(updatedUser);
+        // const updatedUser = await User.findOneAndUpdate({ email: email, password: password }, { isLoggedIn: true }, { new: true });
+        // res.json(updatedUser);
+        res.json("user is valid")
     } else {
         res.json("Invalid credentials")
     }

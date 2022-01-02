@@ -1,0 +1,31 @@
+#registerCmp {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(0, 43, 54);
+  color: lightgray;
+  //   display: flex;
+  //   justify-content: center;
+  position: relative;
+  & > #firstInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    h1 {
+      width: 400px;
+      letter-spacing: 1.5px;
+    }
+    > form {
+      width: 400px;
+    }
+  }
+  > #useExists {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+  }
+}
