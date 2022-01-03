@@ -3,7 +3,7 @@ import "../styles/Register.scss";
 import baseURL from '../utils/baseUrl';
 import { useHistory } from "react-router-dom";
 
-function Register() {
+function Register(props) {
     const history = useHistory();
     const [shouldShowErrow, setError] = useState(false);
     function handleSubmit(event) {
@@ -27,7 +27,8 @@ function Register() {
                 else {
                     setError(false);
                     localStorage.setItem("emailAddress", email);
-                    history.push("/home");
+                    history.push("/");
+                    props.setLogin(true);
                 }
             });
     }

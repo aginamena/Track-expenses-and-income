@@ -4,7 +4,7 @@ import "../styles/Login.scss";
 import baseURL from '../utils/baseUrl';
 
 export default function Login(props) {
-    const [shouldShowErrow, setShowError] = useState(false)
+    const [shouldShowErrow, setShowError] = useState()
     const history = useHistory();
     async function handleSubmit(event) {
         event.preventDefault();
@@ -24,7 +24,8 @@ export default function Login(props) {
         } else {
             localStorage.setItem("emailAddress", emailAddress)
             setShowError(false);
-            history.push("/home");
+            history.push("/");
+            props.setLogin(true);
         }
     }
     return (
