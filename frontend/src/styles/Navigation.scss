@@ -1,0 +1,22 @@
+#navigation {
+  background-color: rgb(7, 54, 66);
+  #navbarNavAltMarkup {
+    justify-content: space-between;
+  }
+  #newExpenseBtn,
+  #newIncomeBtn,
+  #logout,
+  #myProfileBtn,
+  #dashboardBtn {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+  #dashboardBtn,
+  #newIncomeBtn {
+    margin: 0 30px;
+  }
+}
