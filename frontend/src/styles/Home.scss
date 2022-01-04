@@ -1,0 +1,25 @@
+#homepage {
+  background-color: #002626;
+  height: 93vh;
+  color: #839496;
+  & > div {
+    position: relative;
+    #userInfo {
+      font-size: 13px;
+      position: absolute;
+      top: 50px;
+    }
+    #pieChartDiv {
+      & > h2 {
+        text-align: center;
+      }
+      width: 250px;
+      margin: 0 auto;
+    }
+    #homePageStats {
+      display: flex;
+      font-size: 15px;
+      justify-content: space-between;
+    }
+  }
+}
