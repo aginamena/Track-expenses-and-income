@@ -23,6 +23,9 @@ export default function Login(props) {
             setShowError(true);
         } else {
             localStorage.setItem("emailAddress", emailAddress)
+            //user id for identification
+            localStorage.setItem("userId", result._id)
+            localStorage.setItem("userName", result.firstName + " " + result.lastName)
             setShowError(false);
             history.push("/");
             props.setLogin(true);

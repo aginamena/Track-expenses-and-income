@@ -32,6 +32,27 @@ incomeRouter.put("/incId/:updateId", async (req, res) => {
     res.json(updatedIncome);
 })
 
+//get statistics of current user
+incomeRouter.get("/stats/:userId", async (req, res) => {
+    const { userId } = req.params;
+    const allIncomeCreatedByUser = await Income.find({ createdBy: userId })
+    let maxValue = 0, minValue = Number.MAX_VALUE, sum = 0;
+    allIncomeCreatedByUser.map(expense => {
+        maxValue = Math.max(maxValue, expense.amount);
+        minValue = Math.min(minValue, expense.amount);
+        sum += expense.amount;
+    })
+    const result = {
+        numberOfTransactions: allIncomeCreatedByUser.length,
+        min: minValue == Number.MAX_VALUE ? 0 : minValue,
+        max: maxValue,
+        total: sum,
+        avg: allIncomeCreatedByUser.length >= 1 ? Math.round(sum / allIncomeCreatedByUser.length * 10) / 10 : 0
+    };
+    res.json(result);
+
+})
+
 //delete income for specif user
 incomeRouter.delete("/:incomeId", async (req, res) => {
     const { incomeId } = req.params;

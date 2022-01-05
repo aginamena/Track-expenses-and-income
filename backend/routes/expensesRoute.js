@@ -54,10 +54,10 @@ expenseRouter.get("/stats/:userId", async (req, res) => {
     })
     const result = {
         numberOfTransactions: allExpensesCreatedByUser.length,
-        min: minValue,
+        min: minValue == Number.MAX_VALUE ? 0 : minValue,
         max: maxValue,
         total: sum,
-        avg: Math.round(sum / allExpensesCreatedByUser.length * 10) / 10
+        avg: allExpensesCreatedByUser.length >= 1 ? Math.round(sum / allExpensesCreatedByUser.length * 10) / 10 : 0
     };
     res.json(result);
 
