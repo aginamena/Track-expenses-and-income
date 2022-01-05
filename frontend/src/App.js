@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from './components/Register';
 import Home from './components/Home';
 import Expense from './components/Expense';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Naviation from './components/Naviation';
 import Income from './components/Income';
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {isLoggedIn && <Naviation />}
+        {isLoggedIn && <Naviation logout={() => setIsLoggedIn(false)} />}
         <Switch>
           {
             isLoggedIn ? <Route exact path="/" component={Home} /> :

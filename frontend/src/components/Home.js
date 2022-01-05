@@ -30,8 +30,8 @@ function Home() {
     } else {
         if (userStats) {
             data = [
-                { title: 'Expenses', value: userStats.expenseStats.avg, color: "#007bff" },
-                { title: 'Income', value: userStats.incomeStats.avg, color: "#28a745" }
+                { title: 'Expenses', value: userStats.expenseStats.total, color: "#007bff" },
+                { title: 'Income', value: userStats.incomeStats.total, color: "#28a745" }
             ]
         }
         // data = [

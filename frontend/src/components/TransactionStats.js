@@ -7,7 +7,6 @@ function TransactionStats(props) {
             { border: "1px solid #007bff" } : { border: "1px solid #28a745" }}>
             <h3 style={props.isExpense ? { color: "#007bff" } :
                 { color: "#28a745" }}>{props.isExpense ? "Expenses" : "Income"}</h3>
-            {/* <div className='totalAmount'>Total Amount$ : {total}</div> */}
             <div>
                 <div className='totalAmount'>Total Amount: ${new Intl.NumberFormat().format(total)}</div>
                 <div>Number of Transactions: {numberOfTransactions}</div>

@@ -14,7 +14,6 @@ const expenseSchema = mongoose.Schema({
         // the user has to be logged in to be able to create an income
         // the id of the logged in user will be used here
         type: String,
-        require: true
     },
     date: {
         type: String,
