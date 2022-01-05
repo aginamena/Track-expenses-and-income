@@ -6,6 +6,6 @@ Features of the app
 1. User is able to login or register
 2. User is able to create new income and expense
 3. Pie chart shows how much the user makes vs how much they spend
-4. Transaction statistucs is made which invoves, average amount, maximum amount, miminum amount, and so on
+4. Transaction statistics is made which invoves, average amount, maximum amount, miminum amount, and so on
 5. User is able to edit and delete each created income or expense
 6. Admin is able to see all users information in the site
