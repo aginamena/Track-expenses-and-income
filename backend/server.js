@@ -3,16 +3,14 @@ const app = express();
 const cors = require("cors");
 const PORT = 4000;
 const path = require("path");
+require("dotenv").config({ path: `${__dirname}/.env` }); // having access to environment variables
 require("./config/dbConnect.js")(); // connecting to the database
-// require("dotenv").config({ path: "./dev.env" }); // environment variables
-// require("dotenv").config({ path: path.resolve(__dirname, "/.env") }); // environment variables
+
+//route handlers
 const userRoute = require("./routes/userRoute");
 const incomeRouter = require("./routes/incomeRoute");
 const expenseRouter = require("./routes/expensesRoute");
 
-
-// // connecting to the database
-// require("./config/dbConnect.js")();
 
 //middleware
 app.use(express.json()); // this must be first to parse incoming request to json
