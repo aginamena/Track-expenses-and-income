@@ -32,7 +32,10 @@ export default function Login(props) {
         }
     }
     return (
-        <div id="loginPage" style={{ backgroundImage: "url(https://www.bradhussey.ca/wp-content/uploads/2014/10/income-graph.jpg)" }}>
+        <div id="loginPage"
+        // style={{ backgroundImage: "url(https://www.worldofrental.com/helpdesk/wp-content/themes/worldofrental-help/images/post-images/dashboard/pie-chart.jpg)" }}
+        >
+            <img src="/pie-chart.jpg" />
             <div id="loginContent">
                 <h1>Visualize your income and expenses</h1>
                 <small>View all your income and expenses flow from your team in one dashboard</small>

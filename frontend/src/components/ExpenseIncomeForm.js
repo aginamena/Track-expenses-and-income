@@ -26,10 +26,10 @@ function ExpenseIncomeForm(props) {
         <form>
             <h3>{props.isExpense ? "Record New Expense" : "Record New Income"}</h3>
             <div className="form-group">
-                <input type="text" className="form-control" id="formDescription" placeholder="Enter description" />
+                <input type="text" className="form-control" id="formDescription" placeholder="Enter description" required />
             </div>
             <div className="form-group">
-                <input type="Number" className="form-control" id="formAmount" placeholder='Enter Amount' min={0} />
+                <input type="Number" className="form-control" id="formAmount" placeholder='Enter Amount' min={0} required />
             </div>
             <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
         </form>
