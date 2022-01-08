@@ -1,7 +1,13 @@
 import React from 'react'
 import "../styles/TransactionStats.scss";
+import ExpenseIncomeStats from './ExpenseIncomeStats';
 function TransactionStats(props) {
     const { avg, max, min, numberOfTransactions, total } = props.data;
+    function displayStats(event) {
+        document.getElementById("ExpenseIncomeStats").style = "opacity:1;width:700px";
+        document.getElementById("homepage").style = "filter:brightness(0.5)";
+        props.setIsExpenseBtnClicked();
+    }
     return (
         <div id="transactionStats" style={props.isExpense ?
             { border: "1px solid #007bff" } : { border: "1px solid #28a745" }}>
@@ -14,8 +20,9 @@ function TransactionStats(props) {
                 <div>Maximum Amount: ${new Intl.NumberFormat().format(max)}</div>
                 <div>Average Amount: ${new Intl.NumberFormat().format(avg)}</div>
             </div>
-            <button className={`transactionBtn ${props.isExpense ? "btn btn-primary" : "btn btn-success"}`}>{props.isExpense ? "View Expenses" : "View Income"}</button>
+            <button onClick={displayStats} className={`transactionBtn ${props.isExpense ? "btn btn-primary" : "btn btn-success"}`}>{props.isExpense ? "View Expenses" : "View Income"}</button>
         </div>
+
     )
 }
 

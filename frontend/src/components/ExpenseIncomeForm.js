@@ -23,13 +23,15 @@ function ExpenseIncomeForm(props) {
         history.push("/");
     }
     return (
-        <form>
+        <form style={{ color: "#839496" }}>
             <h3>{props.isExpense ? "Record New Expense" : "Record New Income"}</h3>
             <div className="form-group">
+                <label for="formDescription">Description</label>
                 <input type="text" className="form-control" id="formDescription" placeholder="Enter description" required />
             </div>
             <div className="form-group">
-                <input type="Number" className="form-control" id="formAmount" placeholder='Enter Amount' min={0} required />
+                <label for="formAmount">Description</label>
+                <input type="number" className="form-control" id="formAmount" placeholder='Enter Amount' min="0" required />
             </div>
             <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
         </form>
