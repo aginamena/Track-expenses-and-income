@@ -23,8 +23,9 @@
     }
   }
   .closeStats {
-    position: absolute;
-    right: 30px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: right;
     cursor: pointer;
   }
 }

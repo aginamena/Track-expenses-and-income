@@ -19,9 +19,9 @@ incomeRouter.post("/create", async (req, res) => {
 incomeRouter.get("/incId/:createdBy", async (req, res) => {
     //this doesn't work. you'll need pagination here too
 
-    // const { createdBy } = req.params;
-    // const allIncomesCreatedByUser = await Income.find({ createdBy: createdBy })
-    // res.json(allIncomesCreatedByUser);
+    const { createdBy } = req.params;
+    const allIncomesCreatedByUser = await Income.find({ createdBy: createdBy })
+    res.json(allIncomesCreatedByUser);
 })
 
 //update income for specific user
