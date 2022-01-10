@@ -8,6 +8,8 @@ import Expense from './components/Expense';
 import { useState, useEffect } from "react"
 import Naviation from './components/Naviation';
 import Income from './components/Income';
+import EditExpense from './components/EditExpense';
+import EditIncome from './components/EditIncome';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.emailAddress ? true : false);
@@ -29,11 +31,8 @@ function App() {
           </Route>
           <Route exact path="/income" component={Income} />
           <Route exact path="/expense" component={Expense} />
-
-          {/* <Route exact path="/" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/home" component={Home} /> */}
-
+          <Route exact path="/editExpense/:id" component={EditExpense} />
+          <Route exact path="/editIncome/:id" component={EditIncome} />
         </Switch>
       </div>
     </Router>

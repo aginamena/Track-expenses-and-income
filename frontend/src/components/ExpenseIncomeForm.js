@@ -24,7 +24,7 @@ function ExpenseIncomeForm(props) {
     }
     return (
         <form style={{ color: "#839496" }}>
-            <h3>{props.isExpense ? "Record New Expense" : "Record New Income"}</h3>
+            <h3>{props.heading}</h3>
             <div className="form-group">
                 <label for="formDescription">Description</label>
                 <input type="text" className="form-control" id="formDescription" placeholder="Enter description" required />

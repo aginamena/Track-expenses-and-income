@@ -1,16 +1,17 @@
 import React from 'react'
 import ExpenseIncomeForm from './ExpenseIncomeForm'
 import "../styles/Income.scss";
-function Income() {
+import EditIncomeAndExpenseForm from './EditIncomeAndExpenseForm';
+function EditIncome() {
     return (
         <div id="income">
-            <ExpenseIncomeForm
-                heading="Record New Income"
+            <EditIncomeAndExpenseForm
                 isExpense={false}
-                isEdit={false}
+                heading="Edit Income"
             />
+
         </div>
     )
 }
 
-export default Income
+export default EditIncome

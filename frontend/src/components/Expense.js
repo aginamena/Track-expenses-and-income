@@ -8,6 +8,7 @@ function Expense() {
             <ExpenseIncomeForm
                 heading="Record New Expense"
                 isExpense={true}
+                isEdit={false}
             />
         </div>
     )

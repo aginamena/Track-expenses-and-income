@@ -62,4 +62,11 @@ expenseRouter.get("/stats/:userId", async (req, res) => {
     res.json(result);
 
 })
+
+//get a expense by id
+expenseRouter.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    const result = await Expense.findById(id);
+    res.json(result);
+})
 module.exports = expenseRouter;
