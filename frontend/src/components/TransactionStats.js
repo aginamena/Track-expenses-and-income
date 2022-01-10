@@ -6,6 +6,7 @@ function TransactionStats(props) {
     function displayStats(event) {
         document.getElementById("ExpenseIncomeStats").style = "opacity:1;width:700px";
         document.getElementById("homepage").style = "filter:brightness(0.5)";
+        document.getElementById("createTable").style = "display:table";
         props.setIsExpenseBtnClicked();
     }
     return (

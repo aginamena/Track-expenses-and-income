@@ -8,6 +8,7 @@ import ExpenseIncomeStats from './ExpenseIncomeStats';
 
 function Home() {
     const [userStats, setUserStats] = useState()
+    const [shouldRefresh, setShouldRefresh] = useState(false);
     const [isExpenseBtnClicked, setIsExpenseBtnClicked] = useState(false);
     useEffect(async () => {
         const userId = localStorage.getItem("userId");
@@ -22,7 +23,7 @@ function Home() {
                 }
                 setUserStats(result);
             })
-    }, [])
+    }, [shouldRefresh])
     let data;
     if (userStats && userStats.expenseStats.avg == 0 && userStats.incomeStats.avg == 0) {
         data = [
@@ -66,7 +67,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <ExpenseIncomeStats isExpense={isExpenseBtnClicked} />
+            <ExpenseIncomeStats isExpense={isExpenseBtnClicked} refresh={() => setShouldRefresh(!shouldRefresh)} />
         </>
     )
 }
