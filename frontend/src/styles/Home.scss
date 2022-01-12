@@ -2,6 +2,10 @@
   background-color: #002626;
   height: 93vh;
   color: #839496;
+  #homepageSpinner {
+    padding-top: 40px;
+    text-align: center;
+  }
   & > #homepageStats {
     position: relative;
     #userInfo {

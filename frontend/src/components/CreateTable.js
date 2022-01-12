@@ -22,34 +22,36 @@ function CreateTable(props) {
     }
     // only me the user can edit the values here but the admin can see them but can't edit nor delete theem
     return (
-        <table className='table' id="createTable">
-            <thead>
-                <th scope="row">Description</th>
-                <th scope="row">Amount</th>
-                <th scope="row">Date</th>
-                <th scope="row">Edit</th>
-                <th scope="row">Delete</th>
+        <div id="createTableDiv">
+            <table className='table' id="createTable">
+                <thead>
+                    <th scope="row">Description</th>
+                    <th scope="row">Amount</th>
+                    <th scope="row">Date</th>
+                    <th scope="row">Edit</th>
+                    <th scope="row">Delete</th>
 
-            </thead>
-            <tbody>
-                {
-                    props.data.map((item, index) => (
-                        <tr key={index} className='newTableRow'>
-                            <td>{item.description}</td>
-                            <td>{item.amount}</td>
-                            <td>{item.date}</td>
-                            <td>
-                                <Link to={props.isExpense ? "editExpense/" + item._id : "editIncome/" + item._id}>
-                                    <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} />
-                                </Link>
-                                {/* <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} /> */}
-                            </td>
-                            <td><i className="fas fa-trash-alt" onClick={() => DeleteItem(item._id)} style={{ color: "red" }} id={item._id} /></td>
-                        </tr>
-                    ))
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {
+                        props.data.map((item, index) => (
+                            <tr key={index} className='newTableRow'>
+                                <td>{item.description}</td>
+                                <td>{item.amount}</td>
+                                <td>{item.date}</td>
+                                <td>
+                                    <Link to={props.isExpense ? "editExpense/" + item._id : "editIncome/" + item._id}>
+                                        <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} />
+                                    </Link>
+                                    {/* <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} /> */}
+                                </td>
+                                <td><i className="fas fa-trash-alt" onClick={() => DeleteItem(item._id)} style={{ color: "red" }} id={item._id} /></td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
     )
 }
 

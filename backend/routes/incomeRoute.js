@@ -1,3 +1,4 @@
+const { json } = require("express");
 const express = require("express");
 const Income = require("../model/Income");
 const incomeRouter = express.Router();
@@ -58,6 +59,13 @@ incomeRouter.delete("/:incomeId", async (req, res) => {
     const { incomeId } = req.params;
     await Income.findByIdAndDelete({ _id: incomeId });
     res.json("income is deleted")
+})
+
+// get a spcific income by its id
+incomeRouter.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    const result = await Income.findById(id);
+    res.json(result);
 })
 
 module.exports = incomeRouter;

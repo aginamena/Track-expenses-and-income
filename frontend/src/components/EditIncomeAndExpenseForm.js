@@ -39,18 +39,26 @@ function EditIncomeAndExpenseForm(props) {
         setData(data);
     }, [])
     return (
-        <form style={{ color: "#839496" }}>
-            <h3>{props.heading}</h3>
-            <div className="form-group">
-                <label for="formDescription">Description</label>
-                <input type="text" defaultValue={data && data.description} className="form-control" id="formDescription" placeholder="Enter description" required />
-            </div>
-            <div className="form-group">
-                <label for="formAmount">Amount</label>
-                <input type="number" defaultValue={data && data.amount} className="form-control" id="formAmount" placeholder='Enter Amount' min="0" required />
-            </div>
-            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-        </form>
+        <>
+            {
+                !data ? <i className="fas fa-spinner fa-spin fa-5x" style={{ color: "white" }} /> :
+                    <form style={{ color: "#839496" }} onSubmit={handleSubmit}>
+                        <h3>{props.heading}</h3>
+                        <div className="form-group">
+                            <label for="formDescription">Description</label>
+                            <input type="text" defaultValue={data.description} className="form-control" id="formDescription" placeholder="Enter description" required />
+                        </div>
+                        <div className="form-group">
+                            <label for="formAmount">Amount</label>
+                            <input type="number" defaultValue={data.amount} className="form-control" id="formAmount" placeholder='Enter Amount' min="1" required />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
+            }
+        </>
+
+
+
     )
 }
 

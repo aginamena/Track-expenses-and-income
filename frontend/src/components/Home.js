@@ -41,31 +41,35 @@ function Home() {
     return (
         <>
             <div id="homepage">
-                <div className='container' id="homepageStats">
-                    <div id="userInfo">
-                        <div>Name : {localStorage.getItem("userName")}</div>
-                        <div>Email : {localStorage.getItem("emailAddress")}</div>
-                    </div>
-                    <div id='pieChartDiv'>
-                        <h2>Transactions</h2>
-                        <PieChart
-                            data={data}
-                            animate={true}
-                        />
-                    </div>
-                    <div id="homePageStats">
-                        <TransactionStats
-                            isExpense={true}
-                            data={userStats ? userStats.expenseStats : {}}
-                            setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(true)}
-                        />
-                        <TransactionStats
-                            isExpense={false}
-                            data={userStats ? userStats.incomeStats : {}}
-                            setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(false)}
-                        />
-                    </div>
-                </div>
+
+                {
+                    !userStats ? <div id="homepageSpinner"><i className="fas fa-spinner fa-spin fa-5x" style={{ color: "white" }} /></div> :
+                        <div className='container' id="homepageStats">
+                            <div id="userInfo">
+                                <div>Name : {localStorage.getItem("userName")}</div>
+                                <div>Email : {localStorage.getItem("emailAddress")}</div>
+                            </div>
+                            <div id='pieChartDiv'>
+                                <h2>Transactions</h2>
+                                <PieChart
+                                    data={data}
+                                    animate={true}
+                                />
+                            </div>
+                            <div id="homePageStats">
+                                <TransactionStats
+                                    isExpense={true}
+                                    data={userStats.expenseStats}
+                                    setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(true)}
+                                />
+                                <TransactionStats
+                                    isExpense={false}
+                                    data={userStats.incomeStats}
+                                    setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(false)}
+                                />
+                            </div>
+                        </div>
+                }
             </div>
             <ExpenseIncomeStats isExpense={isExpenseBtnClicked} refresh={() => setShouldRefresh(!shouldRefresh)} />
         </>

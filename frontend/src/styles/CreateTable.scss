@@ -1,7 +1,12 @@
-#createTable {
-  color: #839496;
-  display: none;
-  .newTableRow {
-    cursor: pointer;
+#createTableDiv {
+  max-height: 311px;
+  height: auto;
+  overflow: auto;
+  #createTable {
+    color: #839496;
+    display: none;
+    .newTableRow {
+      cursor: pointer;
+    }
   }
 }
