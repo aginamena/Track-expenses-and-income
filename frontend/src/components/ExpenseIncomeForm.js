@@ -30,7 +30,7 @@ function ExpenseIncomeForm(props) {
                 <input type="text" className="form-control" id="formDescription" placeholder="Enter description" required />
             </div>
             <div className="form-group">
-                <label for="formAmount">Description</label>
+                <label for="formAmount">Amount</label>
                 <input type="number" className="form-control" id="formAmount" placeholder='Enter Amount' min="0" required />
             </div>
             <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
