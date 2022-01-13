@@ -25,7 +25,7 @@ function Home() {
             })
     }, [shouldRefresh])
     let data;
-    if (userStats && userStats.expenseStats.avg == 0 && userStats.incomeStats.avg == 0) {
+    if (userStats && userStats.expenseStats.total == 0 && userStats.incomeStats.total == 0) {
         data = [
             { title: 'Expenses', value: 30, color: "#007bff" },
             { title: 'Income', value: 30, color: "#28a745" }
@@ -61,11 +61,13 @@ function Home() {
                                     isExpense={true}
                                     data={userStats.expenseStats}
                                     setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(true)}
+                                    shouldDisplayBtn={true}
                                 />
                                 <TransactionStats
                                     isExpense={false}
                                     data={userStats.incomeStats}
                                     setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(false)}
+                                    shouldDisplayBtn={true}
                                 />
                             </div>
                         </div>

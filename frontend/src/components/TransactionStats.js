@@ -21,7 +21,9 @@ function TransactionStats(props) {
                 <div>Maximum Amount: ${new Intl.NumberFormat().format(max)}</div>
                 <div>Average Amount: ${new Intl.NumberFormat().format(avg)}</div>
             </div>
-            <button onClick={displayStats} className={`transactionBtn ${props.isExpense ? "btn btn-primary" : "btn btn-success"}`}>{props.isExpense ? "View Expenses" : "View Income"}</button>
+            {
+                props.shouldDisplayBtn && <button onClick={displayStats} className={`transactionBtn ${props.isExpense ? "btn btn-primary" : "btn btn-success"}`}>{props.isExpense ? "View Expenses" : "View Income"}</button>
+            }
         </div>
 
     )

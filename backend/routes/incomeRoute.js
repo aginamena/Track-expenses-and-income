@@ -3,11 +3,23 @@ const express = require("express");
 const Income = require("../model/Income");
 const incomeRouter = express.Router();
 
-// get all incomes
+// get all incomes stats
 incomeRouter.get("/", async (req, res) => {
-    const { page } = req.query;
-    const allIncomes = await Income.paginate({}, { limit: 10, page: Number(page) });
-    res.send(allIncomes);
+    const allIncomes = await Income.find()
+    let maxValue = 0, minValue = Number.MAX_VALUE, sum = 0;
+    allIncomes.map(income => {
+        maxValue = Math.max(maxValue, income.amount);
+        minValue = Math.min(minValue, income.amount);
+        sum += income.amount;
+    })
+    const result = {
+        numberOfTransactions: allIncomes.length,
+        min: minValue == Number.MAX_VALUE ? 0 : minValue,
+        max: maxValue,
+        total: sum,
+        avg: allIncomes.length >= 1 ? Math.round(sum / allIncomes.length * 10) / 10 : 0
+    };
+    res.json(result);
 })
 
 //create an income

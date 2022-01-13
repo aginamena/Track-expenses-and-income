@@ -4,9 +4,21 @@ const expenseRouter = express.Router();
 
 // get all expenses
 expenseRouter.get("/", async (req, res) => {
-    const { page } = req.query;
-    const allexpenses = await Expense.paginate({}, { limit: 10, page: Number(page) });
-    res.send(allexpenses);
+    const allExpensesCreatedByUser = await Expense.find()
+    let maxValue = 0, minValue = Number.MAX_VALUE, sum = 0;
+    allExpensesCreatedByUser.map(expense => {
+        maxValue = Math.max(maxValue, expense.amount);
+        minValue = Math.min(minValue, expense.amount);
+        sum += expense.amount;
+    })
+    const result = {
+        numberOfTransactions: allExpensesCreatedByUser.length,
+        min: minValue == Number.MAX_VALUE ? 0 : minValue,
+        max: maxValue,
+        total: sum,
+        avg: allExpensesCreatedByUser.length >= 1 ? Math.round(sum / allExpensesCreatedByUser.length * 10) / 10 : 0
+    };
+    res.json(result);
 })
 
 //create an expense

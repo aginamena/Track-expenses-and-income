@@ -1,0 +1,57 @@
+#adminDashboard {
+  background-color: #002626;
+  height: 93vh;
+  color: #839496;
+  //   display: flex;
+  //   justify-content: space-between;
+  position: relative;
+  #homepageSpinner {
+    padding-top: 40px;
+    text-align: center;
+    // position: absolute;
+  }
+  #leftDashboardStats {
+    position: absolute;
+    left: 0;
+    width: 65%;
+    #pieChartDiv {
+      padding-top: 15px;
+      & > h2 {
+        text-align: center;
+      }
+      width: 250px;
+      margin: 0 auto;
+    }
+    #allUsersStats {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  #rightDashbaordAllUsers {
+    color: white;
+    position: absolute;
+    right: 0;
+    & > h3 {
+      margin-bottom: 30px;
+    }
+    background-color: #002626;
+    filter: brightness(0.5);
+    // width: 400px;
+    width: 35%;
+    padding: 30px;
+    overflow: auto;
+    height: 100%;
+    .userInfo {
+      font-size: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid white;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    // #allUsersStats {
+    //   display: flex;
+    //   justify-content: space-around;
+    // }
+  }
+}
