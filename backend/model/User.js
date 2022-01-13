@@ -20,13 +20,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
-    },
-    isLoggedIn: {
-        type: Boolean,
-        default: false
+    profileImage: {
+        type: String
     }
 
 }, { timestamps: true });

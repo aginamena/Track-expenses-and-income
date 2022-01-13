@@ -14,12 +14,17 @@ function Home() {
         const userId = localStorage.getItem("userId");
         const response = await fetch(baseURL + "expense/stats/" + userId);
         const expensesData = await response.json();
+        //get users profile image
+        const userImageResponse = await fetch(baseURL + "users/profileImage/" + localStorage.getItem("userId"));
+        const userImage = await userImageResponse.json();
+
         fetch(baseURL + "income/stats/" + userId)
             .then(response => response.json())
             .then(incomeData => {
                 const result = {
                     incomeStats: incomeData,
-                    expenseStats: expensesData
+                    expenseStats: expensesData,
+                    profileImage: userImage
                 }
                 setUserStats(result);
             })
@@ -46,8 +51,11 @@ function Home() {
                     !userStats ? <div id="homepageSpinner"><i className="fas fa-spinner fa-spin fa-5x" style={{ color: "white" }} /></div> :
                         <div className='container' id="homepageStats">
                             <div id="userInfo">
-                                <div>Name : {localStorage.getItem("userName")}</div>
-                                <div>Email : {localStorage.getItem("emailAddress")}</div>
+                                <img src={userStats.profileImage} alt="userProfile" className='userProfileImage' />
+                                <div>
+                                    <div>Name : {localStorage.getItem("userName")}</div>
+                                    <div>Email : {localStorage.getItem("emailAddress")}</div>
+                                </div>
                             </div>
                             <div id='pieChartDiv'>
                                 <h2>Transactions</h2>

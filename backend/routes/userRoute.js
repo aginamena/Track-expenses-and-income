@@ -4,13 +4,13 @@ const userRoute = express.Router();
 
 // register a user
 userRoute.post("/register", async (req, res) => {
-    const { firstName, lastName, email, password } = req.body;
+    const { firstName, lastName, email, password, profileImage } = req.body;
     try {
         const user = await User.findOne({ email: email })
         if (user) {
             res.json("user already exists");
         } else {
-            const newUser = await User.create({ firstName, lastName, email, password })
+            const newUser = await User.create({ firstName, lastName, email, password, profileImage })
             res.json(newUser);
         }
     } catch (error) {
@@ -34,6 +34,12 @@ userRoute.post("/login", async (req, res) => {
 userRoute.get("/", async (req, res) => {
     const allUsers = await User.find();
     res.send(allUsers);
+})
+
+//get profile image of the user
+userRoute.get("/profileImage/:id", async (req, res) => {
+    const user = await User.findById(req.params.id)
+    res.json(user.profileImage)
 })
 
 module.exports = userRoute;

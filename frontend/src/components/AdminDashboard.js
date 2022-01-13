@@ -7,6 +7,7 @@ import TransactionStats from './TransactionStats';
 function AdminDashboard() {
     const [allUsers, setAllUsers] = useState();
     const [totalTransactions, setTotalTransactions] = useState();
+
     useEffect(async () => {
         //getting all the users
         const options = {

@@ -10,6 +10,8 @@ export default function Login(props) {
         event.preventDefault();
         const password = document.querySelector("#loginPassword").value;
         const emailAddress = document.querySelector("#loginEmailAddress").value;
+        // const unspplash = await fetch("https://api.unsplash.com/photos/random/?client_id=" + process.env.API_KEY)
+        // console.log(unspplash);
         const options = {
             method: "post",
             headers: {

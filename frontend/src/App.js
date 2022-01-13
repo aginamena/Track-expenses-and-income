@@ -2,6 +2,7 @@
 import './App.css';
 import Login from './components/Login';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import dotenv from "dotenv"
 import Register from './components/Register';
 import Home from './components/Home';
 import Expense from './components/Expense';
@@ -21,7 +22,14 @@ function App() {
         {isLoggedIn && <Naviation logout={() => setIsLoggedIn(false)} />}
         <Switch>
           {
-            isLoggedIn ? <Route exact path="/" component={Home} /> :
+            isLoggedIn ?
+              (
+                localStorage.getItem("emailAddress") === "admin@gmail.com" ?
+                  <Route exact path="/" component={AdminDashboard} /> :
+                  <Route exact path="/" component={Home} />
+              )
+              // <Route exact path="/" component={Home} />
+              :
               <Route exact path="/">
                 <Login setLogin={value => setIsLoggedIn(value)} />
               </Route>
@@ -34,7 +42,7 @@ function App() {
           <Route exact path="/expense" component={Expense} />
           <Route exact path="/editExpense/:id" component={EditExpense} />
           <Route exact path="/editIncome/:id" component={EditIncome} />
-          <Route exact path="/admin" component={AdminDashboard} />
+          {/* <Route exact path="/admin" component={AdminDashboard} /> */}
 
 
         </Switch>

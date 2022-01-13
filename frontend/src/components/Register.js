@@ -6,19 +6,23 @@ import { useHistory } from "react-router-dom";
 function Register(props) {
     const history = useHistory();
     const [shouldShowErrow, setError] = useState(false);
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
         const firstName = document.getElementById("registerFirstName").value;
         const lastName = document.getElementById("registerLastName").value;
         const email = document.getElementById("registerEmailAddress").value;
         const password = document.getElementById("registerPassword").value;
 
+        //getting the profile image
+        const unsplash = await fetch("https://api.unsplash.com/photos/random/?client_id=" + process.env.REACT_APP_API_KEY)
+        const unsplashData = await unsplash.json();
+        const profileImage = unsplashData.urls.small;
         const options = {
             method: "post",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify({ firstName, lastName, email, password })
+            body: JSON.stringify({ firstName, lastName, email, password, profileImage })
         }
         fetch(baseURL + "users/register", options)
             .then(response => response.json())
@@ -26,6 +30,8 @@ function Register(props) {
                 if (data === "user already exists") setError(true);
                 else {
                     setError(false);
+                    localStorage.setItem("userName", firstName + " " + lastName);
+                    localStorage.setItem("userId", data._id)
                     localStorage.setItem("emailAddress", email);
                     history.push("/");
                     props.setLogin(true);

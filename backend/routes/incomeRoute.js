@@ -1,4 +1,4 @@
-const { json } = require("express");
+
 const express = require("express");
 const Income = require("../model/Income");
 const incomeRouter = express.Router();
