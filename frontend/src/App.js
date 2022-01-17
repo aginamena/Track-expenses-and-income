@@ -12,6 +12,7 @@ import Income from './components/Income';
 import EditExpense from './components/EditExpense';
 import EditIncome from './components/EditIncome';
 import AdminDashboard from './components/AdminDashboard';
+import ViewOtherUserProfile from './components/ViewOtherUserProfile';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.emailAddress ? true : false);
@@ -42,6 +43,8 @@ function App() {
           <Route exact path="/expense" component={Expense} />
           <Route exact path="/editExpense/:id" component={EditExpense} />
           <Route exact path="/editIncome/:id" component={EditIncome} />
+          <Route exact path="/otherUser/:id" component={ViewOtherUserProfile} />
+
           {/* <Route exact path="/admin" component={AdminDashboard} /> */}
 
 

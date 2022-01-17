@@ -36,10 +36,10 @@ userRoute.get("/", async (req, res) => {
     res.send(allUsers);
 })
 
-//get profile image of the user
-userRoute.get("/profileImage/:id", async (req, res) => {
+//get user by id
+userRoute.get("/userProfile/:id", async (req, res) => {
     const user = await User.findById(req.params.id)
-    res.json(user.profileImage)
+    res.json(user);
 })
 
 module.exports = userRoute;

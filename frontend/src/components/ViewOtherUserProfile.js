@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../styles/Home.scss";
 import { PieChart } from 'react-minimal-pie-chart';
 import TransactionStats from './TransactionStats';
 import baseURL from '../utils/baseUrl';
 import ExpenseIncomeStats from './ExpenseIncomeStats';
+import { useParams } from 'react-router-dom';
 
-
-function Home() {
+function ViewOtherUserProfile() {
+    const params = useParams();
+    const userId = params.id;
+    console.log(userId);
     const [userStats, setUserStats] = useState()
     const [shouldRefresh, setShouldRefresh] = useState(false);
     const [isExpenseBtnClicked, setIsExpenseBtnClicked] = useState(false);
     useEffect(async () => {
-        const userId = localStorage.getItem("userId");
+        // const userId = localStorage.getItem("userId");
         const response = await fetch(baseURL + "expense/stats/" + userId);
         const expensesData = await response.json();
         //get users profile image
-        const userProfileResponse = await fetch(baseURL + "users/userProfile/" + localStorage.getItem("userId"));
-        const userProfile = await userProfileResponse.json();
+        const userprofileResponse = await fetch(baseURL + "users/userProfile/" + userId);
+        const userProfile = await userprofileResponse.json();
 
         fetch(baseURL + "income/stats/" + userId)
             .then(response => response.json())
@@ -53,8 +56,8 @@ function Home() {
                             <div id="userInfo">
                                 <img src={userStats.userProfile.profileImage} alt="userProfile" className='userProfileImage' />
                                 <div>
-                                    <div>Name : {localStorage.getItem("userName")}</div>
-                                    <div>Email : {localStorage.getItem("emailAddress")}</div>
+                                    <div>Name : {userStats.userProfile.firstName} {userStats.userProfile.lastName}</div>
+                                    <div>Email : {userStats.userProfile.email}</div>
                                 </div>
                             </div>
                             <div id='pieChartDiv'>
@@ -70,7 +73,6 @@ function Home() {
                                     data={userStats.expenseStats}
                                     setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(true)}
                                     shouldDisplayBtn={true}
-
                                 />
                                 <TransactionStats
                                     isExpense={false}
@@ -82,13 +84,11 @@ function Home() {
                         </div>
                 }
             </div>
-            <ExpenseIncomeStats
-                canDelete={true}
-                isExpense={isExpenseBtnClicked}
-                userId={localStorage.getItem("userId")}
+            <ExpenseIncomeStats canDelete={false}
+                userId={userId} isExpense={isExpenseBtnClicked}
                 refresh={() => setShouldRefresh(!shouldRefresh)} />
         </>
     )
 }
 
-export default Home
+export default ViewOtherUserProfile

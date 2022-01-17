@@ -47,11 +47,20 @@
       padding-bottom: 10px;
       border-bottom: 1px solid white;
       margin-bottom: 15px;
-      cursor: pointer;
+      display: flex;
+      align-items: center;
+      & > img {
+        width: 70px;
+        height: 80px;
+        border-radius: 50px;
+        margin-right: 20px;
+      }
+      .usersFirstNLastName {
+        cursor: pointer;
+      }
+      .usersFirstNLastName:hover {
+        color: yellow;
+      }
     }
-    // #allUsersStats {
-    //   display: flex;
-    //   justify-content: space-around;
-    // }
   }
 }

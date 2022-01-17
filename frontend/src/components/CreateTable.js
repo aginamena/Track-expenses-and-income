@@ -28,9 +28,13 @@ function CreateTable(props) {
                     <th scope="row">Description</th>
                     <th scope="row">Amount</th>
                     <th scope="row">Date</th>
-                    <th scope="row">Edit</th>
-                    <th scope="row">Delete</th>
-
+                    {
+                        props.canDelete &&
+                        <>
+                            <th scope="row">Edit</th>
+                            <th scope="row">Delete</th>
+                        </>
+                    }
                 </thead>
                 <tbody>
                     {
@@ -39,13 +43,16 @@ function CreateTable(props) {
                                 <td>{item.description}</td>
                                 <td>{item.amount}</td>
                                 <td>{item.date}</td>
-                                <td>
-                                    <Link to={props.isExpense ? "editExpense/" + item._id : "editIncome/" + item._id}>
-                                        <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} />
-                                    </Link>
-                                    {/* <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} /> */}
-                                </td>
-                                <td><i className="fas fa-trash-alt" onClick={() => DeleteItem(item._id)} style={{ color: "red" }} id={item._id} /></td>
+                                {
+                                    props.canDelete && <>
+                                        <td>
+                                            <Link to={props.isExpense ? "editExpense/" + item._id : "editIncome/" + item._id}>
+                                                <i className="fas fa-edit" style={{ color: "yellow" }} id={item._id} />
+                                            </Link>
+                                        </td>
+                                        <td><i className="fas fa-trash-alt" onClick={() => DeleteItem(item._id)} style={{ color: "red" }} id={item._id} /></td>
+                                    </>
+                                }
                             </tr>
                         ))
                     }

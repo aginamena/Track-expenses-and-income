@@ -12,8 +12,8 @@ function ExpenseIncomeStats(props) {
         document.getElementById("createTable").style = "display:none";
     }
     useEffect(async () => {
-        const endPoint = props.isExpense ? "expense/exId/" + localStorage.getItem("userId") :
-            "income/incId/" + localStorage.getItem("userId");
+        const endPoint = props.isExpense ? "expense/exId/" + props.userId :
+            "income/incId/" + props.userId;
         const url = baseUrl + endPoint;
         const options = {
             method: "GET",
@@ -29,18 +29,16 @@ function ExpenseIncomeStats(props) {
         <div id="ExpenseIncomeStats">
             <i className="fas fa-times fa-lg closeStats" onClick={closeStats} />
             {
-                data ? <CreateTable data={data}
+                data && <CreateTable data={data}
                     isExpense={props.isExpense}
                     refresh={() => {
                         setShouldRefresh(!shouldRefresh)
                         props.refresh()
                     }}
-                /> :
-                    <div id="emptyStats">
-                        <img src="/illustration-empty.svg" />
-                        <div>No Transaction</div>
-                    </div>
+                    canDelete={props.canDelete}
+                />
             }
+
 
         </div>
     )

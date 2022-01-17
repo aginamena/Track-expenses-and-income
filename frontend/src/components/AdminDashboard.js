@@ -4,6 +4,7 @@ import baseUrl from "../utils/baseUrl.js";
 import { PieChart } from 'react-minimal-pie-chart';
 import baseURL from '../utils/baseUrl.js';
 import TransactionStats from './TransactionStats';
+import { Link } from 'react-router-dom';
 function AdminDashboard() {
     const [allUsers, setAllUsers] = useState();
     const [totalTransactions, setTotalTransactions] = useState();
@@ -28,20 +29,6 @@ function AdminDashboard() {
             expense: expenseData
         }
         setTotalTransactions(result);
-        // let data = [{}, {}];
-        // if (totalTransactions && totalTransactions.income.total == 0 && totalTransactions.expense.total == 0) {
-        //     data = [
-        //         { title: 'Expenses', value: 30, color: "#007bff" },
-        //         { title: 'Income', value: 30, color: "#28a745" }
-        //     ]
-        // } else {
-        //     if (totalTransactions) {
-        //         data = [
-        //             { title: 'Expenses', value: totalTransactions.income.total, color: "#007bff" },
-        //             { title: 'Income', value: totalTransactions.expense.total, color: "#28a745" }
-        //         ]
-        //     }
-        // }
     }, [])
     let data;
     if (totalTransactions && totalTransactions.income.total == 0 && totalTransactions.expense.total == 0) {
@@ -52,8 +39,8 @@ function AdminDashboard() {
     } else {
         if (totalTransactions) {
             data = [
-                { title: 'Expenses', value: totalTransactions.income.total, color: "#007bff" },
-                { title: 'Income', value: totalTransactions.expense.total, color: "#28a745" }
+                { title: 'Expenses', value: totalTransactions.expense.total, color: "#007bff" },
+                { title: 'Income', value: totalTransactions.income.total, color: "#28a745" }
             ]
         }
     }
@@ -85,10 +72,13 @@ function AdminDashboard() {
                         </div>
                         <div id="rightDashbaordAllUsers">
                             <h3>All Users</h3>
-                            {allUsers.map(user => (
-                                <div id={user._id} key={user._id} className='userInfo'>
-                                    <div>{user.firstName} {user.lastName}</div>
-                                    <div>{user.email}</div>
+                            {allUsers.filter(user => user.email !== "admin@gmail.com").map(user => (
+                                <div key={user._id} className='userInfo'>
+                                    <img src={user.profileImage} alt="user profile" />
+                                    <div>
+                                        <Link to={"/otherUser/" + user._id}><div id={user._id} className="usersFirstNLastName">{user.firstName} {user.lastName}</div></Link>
+                                        <div>{user.email}</div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
