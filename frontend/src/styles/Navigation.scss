@@ -54,3 +54,9 @@
     }
   }
 }
+
+@media (max-width: 540px) {
+  #userNameAndEmail {
+    opacity: 0;
+  }
+}

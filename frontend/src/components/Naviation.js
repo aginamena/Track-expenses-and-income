@@ -16,11 +16,13 @@ function Naviation(props) {
     function openNavbar() {
         if (state) {
             document.querySelector("#navbarNavAltMarkup").style = "height:0; opacity:0;";
+            document.querySelector("#userNameAndEmail").style = "opacity:0";
             document.querySelector("#navigation").style = "height:130px";
             setState(false);
 
         } else {
             document.querySelector("#navbarNavAltMarkup").style = "height:120px; opacity:1;";
+            document.querySelector("#userNameAndEmail").style = "opacity:1";
             document.querySelector("#navigation").style = "height:250px";
             setState(true)
         }
@@ -34,6 +36,7 @@ function Naviation(props) {
             } else {
                 state && (document.querySelector("#navbarNavAltMarkup").style = "height:0; opacity:0;");
                 document.querySelector("#navigation").style = "height:130px";
+                document.querySelector("#userNameAndEmail").style = "opacity:0";
                 setState(false);
             }
         })

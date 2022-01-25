@@ -13,3 +13,9 @@
     }
   }
 }
+
+@media (max-width: 540px) {
+  #expense > form {
+    width: 90%;
+  }
+}
