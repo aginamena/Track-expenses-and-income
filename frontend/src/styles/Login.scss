@@ -41,16 +41,13 @@
 
 @media (max-width: 768px) {
   #loginPage {
-    // display: block;
     height: 100%;
-    // height: auto;
+    padding: 0 0 50px 0;
+    flex-direction: column;
+    text-align: center;
     > img {
       display: none;
     }
-    padding: 0 0 50px 0;
-    // height: auto;
-    flex-direction: column;
-    text-align: center;
   }
 }
 

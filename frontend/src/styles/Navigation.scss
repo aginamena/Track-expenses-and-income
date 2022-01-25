@@ -1,5 +1,6 @@
 #navigation {
   background-color: rgb(7, 54, 66);
+  transition: all 1s;
   #navbarNavAltMarkup {
     justify-content: space-between;
     height: 30px;
@@ -9,6 +10,9 @@
     #logout {
       width: 81.89px;
     }
+  }
+  .navbar-toggler {
+    margin: 10px 0;
   }
   #newExpenseBtn,
   #newIncomeBtn,
@@ -30,6 +34,16 @@
 
 @media (max-width: 768px) {
   #navigation {
+    height: 130px;
+    position: relative;
+    .firstNavbar {
+      position: absolute;
+      top: 70px;
+    }
+    .secondNavbar {
+      height: 120px;
+      justify-content: space-around;
+    }
     #navbarNavAltMarkup {
       height: 0;
       opacity: 0;

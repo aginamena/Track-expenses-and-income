@@ -36,3 +36,18 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  #homepage {
+    #homepageStats {
+      #userInfo {
+        position: absolute;
+        top: -115px;
+        right: 10px;
+      }
+      #homePageStats {
+        margin-top: 50px;
+      }
+    }
+  }
+}
