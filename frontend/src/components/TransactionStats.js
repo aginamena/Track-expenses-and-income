@@ -11,7 +11,9 @@ function TransactionStats(props) {
     }
     return (
         <div id="transactionStats" style={props.isExpense ?
-            { border: "1px solid #007bff" } : { border: "1px solid #28a745" }}>
+            { border: "1px solid #007bff" } : { border: "1px solid #28a745" }}
+            className={props.className}
+        >
             <h3 style={props.isExpense ? { color: "#007bff" } :
                 { color: "#28a745" }}>{props.isExpense ? "Expenses" : "Income"}</h3>
             <div>

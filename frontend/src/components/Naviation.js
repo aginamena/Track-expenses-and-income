@@ -32,7 +32,9 @@ function Naviation(props) {
                 document.querySelector("#navbarNavAltMarkup").style = "height:120px; opacity:1;";
                 document.querySelector("#navigation").style = "height:46px";
             } else {
+                state && (document.querySelector("#navbarNavAltMarkup").style = "height:0; opacity:0;");
                 document.querySelector("#navigation").style = "height:130px";
+                setState(false);
             }
         })
     })
@@ -43,7 +45,8 @@ function Naviation(props) {
                     <i className="fas fa-bars" onClick={event => openNavbar(event)}></i>
                 </span>
             </button>
-            <div className="navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-collapse" id="navbarNavAltMarkup"
+            >
                 <div className="navbar-nav firstNavbar">
                     {
                         !isAdmin && <Link to="/"><button id='myProfileBtn' type="button" className="btn btn-outline-info">My Profile</button></Link>

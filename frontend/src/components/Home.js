@@ -52,7 +52,7 @@ function Home() {
                         <div className='container' id="homepageStats">
                             <div id="userInfo">
                                 <img src={userStats.userProfile.profileImage} alt="userProfile" className='userProfileImage' />
-                                <div>
+                                <div id="userNameAndEmail">
                                     <div>Name : {localStorage.getItem("userName")}</div>
                                     <div>Email : {localStorage.getItem("emailAddress")}</div>
                                 </div>
@@ -70,6 +70,7 @@ function Home() {
                                     data={userStats.expenseStats}
                                     setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(true)}
                                     shouldDisplayBtn={true}
+                                    className="ExpenseStats"
 
                                 />
                                 <TransactionStats
@@ -77,6 +78,7 @@ function Home() {
                                     data={userStats.incomeStats}
                                     setIsExpenseBtnClicked={() => setIsExpenseBtnClicked(false)}
                                     shouldDisplayBtn={true}
+                                    className="InvoiceStats"
                                 />
                             </div>
                         </div>
