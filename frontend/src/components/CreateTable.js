@@ -22,7 +22,7 @@ function CreateTable(props) {
     }
     // only me the user can edit the values here but the admin can see them but can't edit nor delete theem
     return (
-        <div id="createTableDiv">
+        <div id="createTableDiv" className='table-responsive-sm'>
             <table className='table' id="createTable">
                 <thead>
                     <th scope="row">Description</th>

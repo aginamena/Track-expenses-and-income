@@ -45,8 +45,9 @@
       justify-content: space-around;
     }
     #navbarNavAltMarkup {
-      height: 0;
-      opacity: 0;
+      // height: 0;
+      // opacity: 0;
+      display: none;
       transition: all 1s;
       #newIncomeBtn {
         margin: 0;

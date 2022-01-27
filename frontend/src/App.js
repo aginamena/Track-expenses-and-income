@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from './components/Register';
 import Home from './components/Home';
 import Expense from './components/Expense';
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Naviation from './components/Naviation';
 import Income from './components/Income';
 import EditExpense from './components/EditExpense';

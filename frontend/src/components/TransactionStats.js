@@ -4,7 +4,7 @@ import ExpenseIncomeStats from './ExpenseIncomeStats';
 function TransactionStats(props) {
     const { avg, max, min, numberOfTransactions, total } = props.data;
     function displayStats(event) {
-        document.getElementById("ExpenseIncomeStats").style = "opacity:1;width:700px";
+        document.getElementById("ExpenseIncomeStats").style = window.innerWidth <= 600 ? "opacity:1;width:90%" : "opacity:1;width:700px";
         document.getElementById("homepage").style = "filter:brightness(0.5)";
         document.getElementById("createTable").style = "display:table";
         props.setIsExpenseBtnClicked();
