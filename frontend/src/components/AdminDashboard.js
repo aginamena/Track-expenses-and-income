@@ -44,6 +44,24 @@ function AdminDashboard() {
             ]
         }
     }
+    function displayAllUsers(event) {
+        // viewAllUsers
+        let windowWidth = window.innerWidth;
+        if (windowWidth > 768)
+            document.querySelector("#rightDashbaordAllUsers").style = "opacity:1;width:40%;"
+        else if (windowWidth == 768)
+            document.querySelector("#rightDashbaordAllUsers").style = "opacity:1;width:80%;"
+        else {
+            document.querySelector("#rightDashbaordAllUsers").style = "opacity:1;width:90%;"
+            document.querySelector("#viewAllUsers").style = "z-index:-1";
+        }
+        //     document.querySelector("#rightDashbaordAllUsers").style = "opacity:1;width:90%;"
+        // document.querySelector("#viewAllUsers").style = "z-index:-1";
+    }
+    function closeAllUsers(event) {
+        document.querySelector("#rightDashbaordAllUsers").style = "opacity:0;width:0;"
+        document.querySelector("#viewAllUsers").style = "z-index:3";
+    }
     return (
         <div id='adminDashboard'>
             {
@@ -70,8 +88,12 @@ function AdminDashboard() {
                                 />
                             </div>
                         </div>
+                        <div id="viewAllUsers" onClick={e => displayAllUsers(e)}>View all users</div>
                         <div id="rightDashbaordAllUsers">
-                            <h3>All Users</h3>
+                            <div id="allUsersCon">
+                                <h3>All Users</h3>
+                                <i className="fas fa-times fa-lg closeStats" onClick={e => closeAllUsers(e)} />
+                            </div>
                             {allUsers.filter(user => user.email !== "admin@gmail.com").map(user => (
                                 <div key={user._id} className='userInfo'>
                                     <img src={user.profileImage} alt="user profile" />
