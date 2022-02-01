@@ -16,7 +16,6 @@ import ViewOtherUserProfile from './components/ViewOtherUserProfile';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.emailAddress ? true : false);
-  console.log("you email is " + localStorage.emailAddress);
   return (
     <Router>
       <div className="App">
@@ -29,7 +28,6 @@ function App() {
                   <Route exact path="/" component={AdminDashboard} /> :
                   <Route exact path="/" component={Home} />
               )
-              // <Route exact path="/" component={Home} />
               :
               <Route exact path="/">
                 <Login setLogin={value => setIsLoggedIn(value)} />
@@ -44,10 +42,6 @@ function App() {
           <Route exact path="/editExpense/:id" component={EditExpense} />
           <Route exact path="/editIncome/:id" component={EditIncome} />
           <Route exact path="/otherUser/:id" component={ViewOtherUserProfile} />
-
-          {/* <Route exact path="/admin" component={AdminDashboard} /> */}
-
-
         </Switch>
       </div>
     </Router>

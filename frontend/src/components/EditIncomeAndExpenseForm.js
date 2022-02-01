@@ -45,11 +45,11 @@ function EditIncomeAndExpenseForm(props) {
                     <form style={{ color: "#839496" }} onSubmit={handleSubmit}>
                         <h3>{props.heading}</h3>
                         <div className="form-group">
-                            <label for="formDescription">Description</label>
+                            <label htmlFor="formDescription">Description</label>
                             <input type="text" defaultValue={data.description} className="form-control" id="formDescription" placeholder="Enter description" required />
                         </div>
                         <div className="form-group">
-                            <label for="formAmount">Amount</label>
+                            <label htmlFor="formAmount">Amount</label>
                             <input type="number" defaultValue={data.amount} className="form-control" id="formAmount" placeholder='Enter Amount' min="1" required />
                         </div>
                         <button type="submit" className="btn btn-primary">Submit</button>

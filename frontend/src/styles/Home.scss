@@ -66,6 +66,9 @@
       }
       #pieChartDiv {
         text-align: center;
+        & > h2 {
+          font-size: 16px;
+        }
       }
       #homePageStats {
         flex-direction: column;

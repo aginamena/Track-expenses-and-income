@@ -17,14 +17,15 @@ function Naviation(props) {
         if (state) {
             // document.querySelector("#navbarNavAltMarkup").style = "height:0; opacity:0;";
             document.querySelector("#navbarNavAltMarkup").style = "display:none";
-            document.querySelector("#userNameAndEmail").style = "opacity:0";
+            document.querySelector("#userNameAndEmail") &&
+                (document.querySelector("#userNameAndEmail").style = "opacity:0");
             document.querySelector("#navigation").style = "height:130px";
             setState(false);
 
         } else {
             // document.querySelector("#navbarNavAltMarkup").style = "height:120px; opacity:1;";
             document.querySelector("#navbarNavAltMarkup").style = "display:block";
-            document.querySelector("#userNameAndEmail").style = "opacity:1";
+            document.querySelector("#userNameAndEmail") && (document.querySelector("#userNameAndEmail").style = "opacity:1");
             document.querySelector("#navigation").style = "height:250px";
             setState(true)
         }
@@ -33,14 +34,13 @@ function Naviation(props) {
         //resizing navigation bar for all screen sizes
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
-                // document.querySelector("#navbarNavAltMarkup").style = "height:120px; opacity:1;";
                 document.querySelector("#navbarNavAltMarkup").style = "display:block";
                 document.querySelector("#navigation").style = "height:46px";
             } else {
                 state && (document.querySelector("#navbarNavAltMarkup").style = "display:none;");
-                // document.querySelector("#navbarNavAltMarkup").style = "height:0; opacity:0;");
                 document.querySelector("#navigation").style = "height:130px";
-                document.querySelector("#userNameAndEmail").style = "opacity:0";
+                document.querySelector("#userNameAndEmail") &&
+                    (document.querySelector("#userNameAndEmail").style = "opacity:0");
                 setState(false);
             }
         })
@@ -59,7 +59,8 @@ function Naviation(props) {
                         !isAdmin && <Link to="/"><button id='myProfileBtn' type="button" className="btn btn-outline-info">My Profile</button></Link>
                     }
                 </div>
-                <div className="navbar-nav secondNavbar">
+                <div className="navbar-nav secondNavbar"
+                >
                     {
                         !isAdmin && (
                             <>
@@ -68,7 +69,10 @@ function Naviation(props) {
                             </>
                         )
                     }
-                    <button id='logout' type="submit" className="btn btn-outline-warning" onClick={logout}>Logout</button>
+                    <button id='logout' type="submit"
+                        className="btn btn-outline-warning"
+                        onClick={logout}
+                    >Logout</button>
                 </div>
             </div>
         </nav>

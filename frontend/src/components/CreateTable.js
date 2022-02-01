@@ -25,16 +25,18 @@ function CreateTable(props) {
         <div id="createTableDiv" className='table-responsive-sm'>
             <table className='table' id="createTable">
                 <thead>
-                    <th scope="row">Description</th>
-                    <th scope="row">Amount</th>
-                    <th scope="row">Date</th>
-                    {
-                        props.canDelete &&
-                        <>
-                            <th scope="row">Edit</th>
-                            <th scope="row">Delete</th>
-                        </>
-                    }
+                    <tr>
+                        <th scope="row">Description</th>
+                        <th scope="row">Amount</th>
+                        <th scope="row">Date</th>
+                        {
+                            props.canDelete &&
+                            <>
+                                <th scope="row">Edit</th>
+                                <th scope="row">Delete</th>
+                            </>
+                        }
+                    </tr>
                 </thead>
                 <tbody>
                     {

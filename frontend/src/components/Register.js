@@ -44,22 +44,22 @@ function Register(props) {
                 <h1>Visualize and keep track of what you spend</h1>
                 <form id="registerForm" onSubmit={handleSubmit} id="registerForm">
                     <div className="form-group">
-                        <label for="registerFirstName">First name</label>
+                        <label htmlFor="registerFirstName">First name</label>
                         <input type="text" className="form-control" id="registerFirstName" placeholder="Mena" required />
 
                     </div>
                     <div className="form-group">
-                        <label for="registerLastName">Last name</label>
+                        <label htmlFor="registerLastName">Last name</label>
                         <input type="text" className="form-control" id="registerLastName" placeholder="Agina" required />
 
                     </div>
                     <div className="form-group">
-                        <label for="registerEmailAddress">Email address</label>
+                        <label htmlFor="registerEmailAddress">Email address</label>
                         <input type="email" className="form-control" id="registerEmailAddress" placeholder="Enter email" required />
 
                     </div>
                     <div className="form-group">
-                        <label for="registerPassword">Password</label>
+                        <label htmlFor="registerPassword">Password</label>
                         <input type="password" className="form-control" id="registerPassword" placeholder="Password" required />
                     </div>
                     <div id="loginPageBtns">

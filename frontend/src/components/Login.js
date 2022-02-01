@@ -43,12 +43,12 @@ export default function Login(props) {
                 <small>View all your income and expenses flow from your team in one dashboard</small>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label for="loginEmailAddress">Email address</label>
+                        <label htmlFor="loginEmailAddress">Email address</label>
                         <input type="email" className="form-control" id="loginEmailAddress" placeholder="Enter email" required />
 
                     </div>
                     <div className="form-group">
-                        <label for="loginPassword">Password</label>
+                        <label htmlFor="loginPassword">Password</label>
                         <input type="password" className="form-control" id="loginPassword" placeholder="Password" required />
                     </div>
                     <div id="loginPageBtns">

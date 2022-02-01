@@ -3,8 +3,8 @@
   transition: all 1s;
   #navbarNavAltMarkup {
     justify-content: space-between;
-    height: 30px;
-    opacity: 1;
+    // height: 30px;
+    // opacity: 1;
     // opacity: 0;
     // transition: all 1s;
     #logout {
@@ -36,10 +36,10 @@
   #navigation {
     height: 130px;
     position: relative;
-    .firstNavbar {
-      position: absolute;
-      top: 70px;
-    }
+    // .firstNavbar {
+    //   position: absolute;
+    //   top: 70px;
+    // }
     .secondNavbar {
       height: 120px;
       justify-content: space-around;
