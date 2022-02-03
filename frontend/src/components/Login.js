@@ -10,8 +10,6 @@ export default function Login(props) {
         event.preventDefault();
         const password = document.querySelector("#loginPassword").value;
         const emailAddress = document.querySelector("#loginEmailAddress").value;
-        // const unspplash = await fetch("https://api.unsplash.com/photos/random/?client_id=" + process.env.API_KEY)
-        // console.log(unspplash);
         const options = {
             method: "post",
             headers: {
@@ -35,7 +33,6 @@ export default function Login(props) {
     }
     return (
         <div id="loginPage"
-        // style={{ backgroundImage: "url(https://www.worldofrental.com/helpdesk/wp-content/themes/worldofrental-help/images/post-images/dashboard/pie-chart.jpg)" }}
         >
             <img src="/pie-chart.jpg" />
             <div id="loginContent">

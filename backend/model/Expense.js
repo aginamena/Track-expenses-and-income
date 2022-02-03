@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const mongoosePaginate = require('mongoose-paginate-v2');
 const expenseSchema = mongoose.Schema({
     description: {
         type: String,
@@ -21,7 +20,4 @@ const expenseSchema = mongoose.Schema({
     }
 });
 
-// adding pagination. We're adding additional functionaliies
-// to our model
-expenseSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model("Expense", expenseSchema)
