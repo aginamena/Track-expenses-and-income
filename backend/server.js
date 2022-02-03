@@ -7,6 +7,9 @@ require("dotenv").config({ path: `${__dirname}/.env` }); // having access to env
 require("./config/dbConnect.js")(); // connecting to the database
 
 //route handlers
+app.get("/", (req, res) => {
+    res.send("Hellow word");
+})
 const userRoute = require("./routes/userRoute");
 const incomeRouter = require("./routes/incomeRoute");
 const expenseRouter = require("./routes/expensesRoute");
