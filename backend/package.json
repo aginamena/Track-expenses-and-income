@@ -17,5 +17,8 @@
     "mongoose": "^6.1.4",
     "mongoose-paginate-v2": "^1.4.2",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.17.0"
   }
 }
