@@ -7,9 +7,6 @@ require("dotenv").config({ path: `${__dirname}/.env` }); // having access to env
 require("./config/dbConnect.js")(); // connecting to the database
 
 //route handlers
-app.get("/", (req, res) => {
-    res.send("Hellow word");
-})
 const userRoute = require("./routes/userRoute");
 const incomeRouter = require("./routes/incomeRoute");
 const expenseRouter = require("./routes/expensesRoute");
@@ -21,6 +18,8 @@ app.use(cors()); // we want the frontend to be albe to access the server
 app.use("/api/users", userRoute);
 app.use("/api/income", incomeRouter);
 app.use("/api/expense", expenseRouter);
-
+app.get("/", (req, res) => {
+    res.send("Hellow word");
+})
 
 app.listen(PORT, () => { console.log("Server is running") })
