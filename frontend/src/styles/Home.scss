@@ -42,8 +42,10 @@
     #homepageStats {
       #userInfo {
         position: absolute;
-        top: -115px;
+        top: -155px;
         right: 10px;
+        flex-direction: column-reverse;
+        align-items: flex-start;
       }
       #homePageStats {
         margin-top: 50px;
@@ -57,10 +59,6 @@
     height: auto;
     padding-bottom: 50px;
     #homepageStats {
-      #userNameAndEmail {
-        position: absolute;
-        top: -80px;
-      }
       #pieChartDiv > svg {
         width: 150px;
       }
@@ -85,8 +83,5 @@
         }
       }
     }
-    // #pieChartDiv > svg {
-    //   width: 150px;
-    // }
   }
 }

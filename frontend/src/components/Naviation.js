@@ -36,6 +36,8 @@ function Naviation(props) {
             if (window.innerWidth > 768) {
                 document.querySelector("#navbarNavAltMarkup").style = "display:block";
                 document.querySelector("#navigation").style = "height:46px";
+                document.querySelector("#userNameAndEmail") &&
+                    (document.querySelector("#userNameAndEmail").style = "opacity:1");
             } else {
                 state && (document.querySelector("#navbarNavAltMarkup").style = "display:none;");
                 document.querySelector("#navigation").style = "height:130px";
