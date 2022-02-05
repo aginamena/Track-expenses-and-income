@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 7002;
+console.log("port is " + PORT);
 const path = require("path");
 require("dotenv").config({ path: `${__dirname}/.env` }); // having access to environment variables
 require("./config/dbConnect.js")(); // connecting to the database

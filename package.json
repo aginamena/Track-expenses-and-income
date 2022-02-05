@@ -6,7 +6,8 @@
   "scripts": {
     "backend": "nodemon backend/server.js",
     "frontend": "npm run start --prefix frontend",
-    "dev": "concurrently \"npm run backend \" \"npm run frontend \""
+    "dev": "concurrently \"npm run backend \" \"npm run frontend \"",
+    "start": "node backend/server.js"
   },
   "author": "",
   "license": "ISC",
