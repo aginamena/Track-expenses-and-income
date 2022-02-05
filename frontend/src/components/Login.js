@@ -16,7 +16,7 @@ export default function Login(props) {
         const options = {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ email: emailAddress, password: password })
         }

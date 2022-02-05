@@ -17,12 +17,12 @@ const expenseRouter = require("./routes/expensesRoute");
 app.use(express.json()); // this must be first to parse incoming request to json
 app.use(cors()); // we want the frontend to be albe to access the server
 app.use(express.urlencoded());
-app.get("/", (req, res) => {
-    res.send("sdf")
-})
+
 app.use("/api/users", userRoute);
 app.use("/api/income", incomeRouter);
 app.use("/api/expense", expenseRouter);
-
+app.get("/", (req, res) => {
+    res.send("Hello world")
+})
 
 app.listen(PORT, () => { console.log("Server is running") })
