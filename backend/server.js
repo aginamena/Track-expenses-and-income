@@ -16,6 +16,7 @@ const expenseRouter = require("./routes/expensesRoute");
 //middleware
 app.use(express.json()); // this must be first to parse incoming request to json
 app.use(cors()); // we want the frontend to be albe to access the server
+app.use(express.urlencoded());
 app.get("/", (req, res) => {
     res.send("sdf")
 })

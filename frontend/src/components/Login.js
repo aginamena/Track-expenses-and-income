@@ -4,6 +4,9 @@ import "../styles/Login.scss";
 import baseURL from '../utils/baseUrl';
 
 export default function Login(props) {
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
+
+    console.log(backend_server_connection + "users/login");
     const [shouldShowErrow, setShowError] = useState()
     const history = useHistory();
     async function handleSubmit(event) {
@@ -17,7 +20,7 @@ export default function Login(props) {
             },
             body: JSON.stringify({ email: emailAddress, password: password })
         }
-        const response = await fetch(baseURL + "users/login", options)
+        const response = await fetch(backend_server_connection + "users/login", options)
         const result = await response.json();
         if (result === "Invalid credentials") {
             setShowError(true);

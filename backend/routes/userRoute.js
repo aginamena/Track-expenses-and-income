@@ -21,6 +21,7 @@ userRoute.post("/register", async (req, res) => {
 //login a user
 userRoute.post("/login", async (req, res) => {
     // if the user has to be registered before they can login
+
     const { email, password } = req.body;
     const user = await User.findOne({ email: email, password: password });
     if (user) {

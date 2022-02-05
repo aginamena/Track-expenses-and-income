@@ -7,6 +7,7 @@ import ExpenseIncomeStats from './ExpenseIncomeStats';
 
 
 function Home() {
+    console.log(process.env.REACT_APP_BACKEND_SERVER_CONNECTION);
     const [userStats, setUserStats] = useState()
     const [shouldRefresh, setShouldRefresh] = useState(false);
     const [isExpenseBtnClicked, setIsExpenseBtnClicked] = useState(false);
