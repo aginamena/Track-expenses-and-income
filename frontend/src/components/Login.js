@@ -14,7 +14,7 @@ export default function Login(props) {
         const password = document.querySelector("#loginPassword").value;
         const emailAddress = document.querySelector("#loginEmailAddress").value;
         const options = {
-            method: "post",
+            method: "POST",
             headers: {
                 "content-type": "application/json"
             },
