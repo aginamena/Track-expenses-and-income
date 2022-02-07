@@ -18,9 +18,12 @@ export default function Login(props) {
             headers: {
                 "Content-Type": "application/json"
             },
+            mode: "no-cors",
             body: JSON.stringify({ email: emailAddress, password: password })
         }
-        const response = await fetch(backend_server_connection + "users/login", options)
+        const url = "https://salty-cove-29032.herokuapp.com/api/users/login";
+        // const response = await fetch(backend_server_connection + "users/login", options)
+        const response = await fetch(url, options)
         const result = await response.json();
         if (result === "Invalid credentials") {
             setShowError(true);
