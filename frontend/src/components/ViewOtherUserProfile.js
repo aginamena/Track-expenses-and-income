@@ -55,7 +55,7 @@ function ViewOtherUserProfile() {
                         <div className='container' id="homepageStats">
                             <div id="userInfo">
                                 <img src={userStats.userProfile.profileImage} alt="userProfile" className='userProfileImage' />
-                                <div>
+                                <div id="userNameAndEmail">
                                     <div>Name : {userStats.userProfile.firstName} {userStats.userProfile.lastName}</div>
                                     <div>Email : {userStats.userProfile.email}</div>
                                 </div>
