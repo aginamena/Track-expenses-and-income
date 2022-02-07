@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 //url from mongodb atlis using compass
 
 function dbConnect() {
-    mongoose.connect(process.env.MONGO_URL, {
+    const url = "mongodb+srv://menaagina:iaBaZiBeE1ClVCaQ@cluster0.fiw0d.mongodb.net/Track_expenses_and_income";
+    console.log(process.env.MONGO_URL);
+    mongoose.connect(url, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     })
