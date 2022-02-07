@@ -39,7 +39,8 @@ userRoute.get("/", async (req, res) => {
     console.log(allUsers);
     // res.
     // res.json(allUsers);
-    res.json("reached here")
+    // res.json("reached here")
+    res.send("reached here")
 })
 
 //get user by id
