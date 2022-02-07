@@ -10,5 +10,5 @@ Features of the app
 5. User is able to edit and delete each created income or expense
 6. Admin is able to see all users information in the site
 
-Live site:https://trackexpensesandincome.netlify.app/
+Live site: https://trackexpensesandincome.netlify.app/
 
