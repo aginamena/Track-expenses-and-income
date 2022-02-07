@@ -1,10 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import baseURL from '../utils/baseUrl';
-
 
 function ExpenseIncomeForm(props) {
     const history = useHistory();
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     async function handleSubmit(event) {
         event.preventDefault();
         const description = document.querySelector("#formDescription").value;
@@ -17,7 +16,7 @@ function ExpenseIncomeForm(props) {
             body: JSON.stringify({ description, amount, createdBy: localStorage.getItem("userId") })
         }
         const endpoint = props.isExpense ? "expense/create" : "income/create";
-        await fetch(baseURL + endpoint, options)
+        await fetch(backend_server_connection + endpoint, options)
         // we don't care about the response. we just send it to the server
         // and go to home page
         history.push("/");

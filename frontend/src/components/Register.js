@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import "../styles/Register.scss";
-import baseURL from '../utils/baseUrl';
 import { useHistory } from "react-router-dom";
 
 function Register(props) {
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     const history = useHistory();
     const [shouldShowErrow, setError] = useState(false);
     async function handleSubmit(event) {
@@ -24,7 +24,7 @@ function Register(props) {
             },
             body: JSON.stringify({ firstName, lastName, email, password, profileImage })
         }
-        fetch(baseURL + "users/register", options)
+        fetch(backend_server_connection + "users/register", options)
             .then(response => response.json())
             .then(data => {
                 if (data === "user already exists") setError(true);

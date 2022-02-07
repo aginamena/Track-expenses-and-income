@@ -1,8 +1,8 @@
 import React from 'react'
 import "../styles/CreateTable.scss";
-import baseURL from '../utils/baseUrl';
 import { Link } from "react-router-dom"
 function CreateTable(props) {
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     async function DeleteItem(id) {
         const options = {
             method: "delete",
@@ -11,12 +11,10 @@ function CreateTable(props) {
             }
         }
         if (props.isExpense) {
-            console.log(id);
-            console.log(baseURL + "expense/" + id)
-            await fetch(baseURL + "expense/" + id, options)
+            await fetch(backend_server_connection + "expense/" + id, options)
             // we don't need the response
         } else {
-            await fetch(baseURL + "income/" + id, options)
+            await fetch(backend_server_connection + "income/" + id, options)
         }
         props.refresh();
     }

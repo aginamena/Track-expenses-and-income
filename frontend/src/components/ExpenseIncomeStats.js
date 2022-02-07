@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/ExpenseIncomeStats.scss";
-import baseUrl from "../utils/baseUrl.js";
 import CreateTable from './CreateTable';
 
 function ExpenseIncomeStats(props) {
     const [data, setData] = useState();
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     const [shouldRefresh, setShouldRefresh] = useState(false);
     function closeStats(event) {
         document.getElementById("ExpenseIncomeStats").style = "opacity:0;width:0";
@@ -14,7 +14,7 @@ function ExpenseIncomeStats(props) {
     useEffect(async () => {
         const endPoint = props.isExpense ? "expense/exId/" + props.userId :
             "income/incId/" + props.userId;
-        const url = baseUrl + endPoint;
+        const url = backend_server_connection + endPoint;
         const options = {
             method: "GET",
             headers: {

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import baseURL from '../utils/baseUrl';
-
 
 function EditIncomeAndExpenseForm(props) {
     const { id } = useParams();
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     const history = useHistory();
     const [data, setData] = useState();
     function handleSubmit(event) {
@@ -19,7 +18,7 @@ function EditIncomeAndExpenseForm(props) {
             },
             body: JSON.stringify({ description, amount })
         }
-        fetch(baseURL + endPoint, options);
+        fetch(backend_server_connection + endPoint, options);
         //we don't need the resonse from the server
         history.push("/");
 
@@ -33,7 +32,7 @@ function EditIncomeAndExpenseForm(props) {
             }
         }
         // console.log(baseURL + end)
-        const response = await fetch(baseURL + endPoint, options)
+        const response = await fetch(backend_server_connection + endPoint, options)
         // console.log(response);
         const data = await response.json();
         setData(data);

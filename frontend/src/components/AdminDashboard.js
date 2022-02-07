@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/AdminDashboard.scss";
-import baseUrl from "../utils/baseUrl.js";
 import { PieChart } from 'react-minimal-pie-chart';
-import baseURL from '../utils/baseUrl.js';
 import TransactionStats from './TransactionStats';
 import { Link } from 'react-router-dom';
 function AdminDashboard() {
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     const [allUsers, setAllUsers] = useState();
     const [totalTransactions, setTotalTransactions] = useState();
 
@@ -17,12 +16,12 @@ function AdminDashboard() {
                 "content-type": "application/json",
             }
         }
-        const response = await fetch(baseUrl + "users/", options);
+        const response = await fetch(backend_server_connection + "users/", options);
         const users = await response.json();
         setAllUsers(users);
-        const incomeResponse = await fetch(baseURL + "income");
+        const incomeResponse = await fetch(backend_server_connection + "income");
         const incomeData = await incomeResponse.json();
-        const expenseResponse = await fetch(baseURL + "expense");
+        const expenseResponse = await fetch(backend_server_connection + "expense");
         const expenseData = await expenseResponse.json();
         const result = {
             income: incomeData,

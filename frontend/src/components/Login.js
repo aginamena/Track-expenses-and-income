@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from "react-router-dom";
 import "../styles/Login.scss";
-import baseURL from '../utils/baseUrl';
 
 export default function Login(props) {
     const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
@@ -18,12 +17,9 @@ export default function Login(props) {
             headers: {
                 "Content-Type": "application/json"
             },
-            mode: "no-cors",
             body: JSON.stringify({ email: emailAddress, password: password })
         }
-        const url = "https://salty-cove-29032.herokuapp.com/api/users/login";
-        // const response = await fetch(backend_server_connection + "users/login", options)
-        const response = await fetch(url, options)
+        const response = await fetch(backend_server_connection + "users/login", options)
         const result = await response.json();
         if (result === "Invalid credentials") {
             setShowError(true);

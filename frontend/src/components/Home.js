@@ -2,24 +2,23 @@ import React, { useEffect, useState } from 'react'
 import "../styles/Home.scss";
 import { PieChart } from 'react-minimal-pie-chart';
 import TransactionStats from './TransactionStats';
-import baseURL from '../utils/baseUrl';
 import ExpenseIncomeStats from './ExpenseIncomeStats';
 
 
 function Home() {
-    console.log(process.env.REACT_APP_BACKEND_SERVER_CONNECTION);
+    const backend_server_connection = process.env.REACT_APP_BACKEND_SERVER_CONNECTION;
     const [userStats, setUserStats] = useState()
     const [shouldRefresh, setShouldRefresh] = useState(false);
     const [isExpenseBtnClicked, setIsExpenseBtnClicked] = useState(false);
     useEffect(async () => {
         const userId = localStorage.getItem("userId");
-        const response = await fetch(baseURL + "expense/stats/" + userId);
+        const response = await fetch(backend_server_connection + "expense/stats/" + userId);
         const expensesData = await response.json();
         //get users profile image
-        const userProfileResponse = await fetch(baseURL + "users/userProfile/" + localStorage.getItem("userId"));
+        const userProfileResponse = await fetch(backend_server_connection + "users/userProfile/" + localStorage.getItem("userId"));
         const userProfile = await userProfileResponse.json();
 
-        fetch(baseURL + "income/stats/" + userId)
+        fetch(backend_server_connection + "income/stats/" + userId)
             .then(response => response.json())
             .then(incomeData => {
                 const result = {
