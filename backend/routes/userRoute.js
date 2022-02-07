@@ -33,8 +33,10 @@ userRoute.post("/login", async (req, res) => {
 
 //get all users of the site
 userRoute.get("/", async (req, res) => {
+    console.log("here");
     const allUsers = await User.find();
-    res.send(allUsers);
+    // res.send(allUsers);
+    res.json(allUsers);
     // res.json("reached here")
 })
 
